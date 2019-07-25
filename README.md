@@ -62,3 +62,15 @@ App is dependent on DB because it doesn't store any state in its memory or disks
 In Stateful app, each server remembers users's state which logged in to, load balancer need to config to routing requests to same server as earlier requests -> not load balancer anymore
 
 In Stateless app, load balancer doesn't need to worry about routing requests -> truly load balancer
+
+# REST and gRPC
+
+## REST
+
+Pros:
+
+- Easy to understand
+
+- Build on top HTTP
+
+- Loose coupling betwwen cliend and server make future changes easily
