@@ -63,6 +63,12 @@ In Stateful app, each server remembers users's state which logged in to, load ba
 
 In Stateless app, load balancer doesn't need to worry about routing requests -> truly load balancer
 
+## References
+
+https://nordicapis.com/defining-stateful-vs-stateless-web-services/
+
+https://www.bizety.com/2018/08/21/stateful-vs-stateless-architecture-overview/
+
 # REST and gRPC
 
 ## REST
@@ -74,3 +80,39 @@ Pros:
 - Build on top HTTP
 
 - Loose coupling betwwen cliend and server make future changes easily
+
+## References
+
+https://code.tutsplus.com/tutorials/rest-vs-grpc-battle-of-the-apis--cms-30711
+
+https://medium.com/@sankar.p/how-grpc-convinced-me-to-chose-it-over-rest-30408bf42794
+
+https://hackernoon.com/rest-in-peace-grpc-for-micro-service-and-grpc-for-the-web-a-how-to-908cc05e1083
+
+# Message queue and Web service
+
+## Message queue
+
+- If the server fails, the queue persist the message (optionally, even if the machine shutdown).
+
+- When the server is working again, it receives the pending message.
+
+- If the server gives a response to the call and the client fails, if the client didn't acknowledge the response the message is persisted.
+
+- You have contention, you can decide how many requests are handled by the server (call it worker instead).
+
+## Web service
+
+- If the server fails the client must take responsibility to handle the error.
+
+- When the server is working again the client is responsible of resending it.
+
+- If the server gives a response to the call and the client fails the operation is lost.
+
+- If million of clients call a web service on one server in a second, most probably your server will go down.
+
+## References
+
+https://stackoverflow.com/questions/2383912/message-queue-vs-web-services
+
+https://dev.to/matteojoliveau/microservices-communications-why-you-should-switch-to-message-queues--48ia
